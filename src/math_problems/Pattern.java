@@ -1,7 +1,6 @@
 package math_problems;
 
 public class Pattern {
-
     /** INSTRUCTIONS
      * Read the numbers below, identify the pattern, and then implement the logic from this pattern.
      * Once done, you should test to see if you get the same output as below:
@@ -10,7 +9,35 @@ public class Pattern {
      *
      */
 
+
     public static void main(String[] args) {
 
-    }
+        int count = 100;
+
+        for (int i = 100; i >= 0; i--) {
+
+            if( count<=100 && count>=90){
+               System.out.print(i + ",");
+                count--;
+            }
+            else if(count<=89 && count>=70){
+                System.out.print((i-=1)+ ",");count-=2;
+            }
+            else if(count<=69 && count>=40){
+                System.out.print((i-=2)+ ",");count-=3;
+            }
+            else if(count<=39 && count>4){
+                System.out.print((i-=3)+ ",");count-=4;
+            }
+            else if (count<=4 && count>=0){
+                System.out.println(i-=3); count-=4;
+            }
+
+
+        }
+
+
+
+        }
 }
+

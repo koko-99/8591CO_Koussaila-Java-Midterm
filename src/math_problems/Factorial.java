@@ -1,5 +1,7 @@
 package math_problems;
 
+import java.util.Scanner;
+
 public class Factorial {
 
     /** INSTRUCTIONS
@@ -12,7 +14,32 @@ public class Factorial {
 
     public static void main(String[] args) {
 
+        System.out.println("factorial of the number entered using recursion is "+ factorialRecursion(5));
 
+        System.out.println("factorial of the number entered using Iteration is " + factorialIteration(6));
+
+
+
+
+    }
+    public static int factorialRecursion(int n) {
+        if (n == 1) {
+            return 1;
+        } else {
+
+            int Y=n * factorialRecursion(n - 1);
+
+            return Y;
+        }
+
+    }
+
+    public static int factorialIteration(int x){
+        int FI=1;
+        for(int i=x; i>1;i--){
+            FI=FI*i;
+        }
+        return FI;
     }
 
 }

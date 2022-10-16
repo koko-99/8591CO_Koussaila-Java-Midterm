@@ -26,6 +26,7 @@ public class SharedStepsDatabase {
     public SharedStepsDatabase() {
         prop = loadProperties();
 
+
         if (prop != null) {
             String driverClass = prop.getProperty("MYSQLJDBC.driver");
             String host = prop.getProperty("MYSQLJDBC.host");

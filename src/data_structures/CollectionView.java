@@ -1,6 +1,7 @@
 package data_structures;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class CollectionView {
 
@@ -20,6 +21,11 @@ public class CollectionView {
         map.put(4, "Boston");
         map.put(1, "NYC");
         map.put(3, "Denver");
+        Iterator findAndSort = map.keySet().iterator();
+        while (findAndSort.hasNext()){
+            System.out.println(map.get(findAndSort.next()));
+
+        }
 
     }
 

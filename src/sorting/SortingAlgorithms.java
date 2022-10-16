@@ -15,11 +15,11 @@ public class SortingAlgorithms {
 
     public static void printSortedArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
+            System.out.print(array[i]);
         }
     }
 
-    public static int[] selectionSort(int[] array) {
+    public  int[] selectionSort(int[] array) {
         final long startTime = System.currentTimeMillis();
 
 
@@ -36,12 +36,12 @@ public class SortingAlgorithms {
         }
 
         final long endTime = System.currentTimeMillis();
-        //this.executionTime = endTime - startTime;
+        this.executionTime = endTime - startTime;
 
         return array;
     }
 
-    public static int[] insertionSort(int[] array) {
+    public  int[] insertionSort(int[] array) {
         final long startTime = System.currentTimeMillis();
         // IMPLEMENT HERE
 
@@ -57,33 +57,44 @@ public class SortingAlgorithms {
 
         final long endTime = System.currentTimeMillis();
         final long executionTime= endTime- startTime;
-        //this.executionTime = endTime - startTime;
+        this.executionTime = endTime - startTime;
 
         return array;
     }
 
-    public int[] bubbleSort(int[] array) {
+    public  int[] bubbleSort(int[] array) {
         // IMPLEMENT HERE
+
+        final long startTime = System.currentTimeMillis();
+        int i, j, temp;
+        boolean swapped = false;
 
         int n = array.length;
-        int temp = 0;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<(n-1); j++){
-                if(array[j-1]>array[j]){
-                    temp=array[j-1];
-                    array[j-1]=array[j];
-                    array[j]=temp;
+        ;
+        for (i = 0; i < n - 1; i++) {
+            for (j = 0; j < n - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    // we swap the two values
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    swapped = true;
+
                 }
             }
+            if (swapped == false) break;
+            ;
         }
 
-
+        final long endTime = System.currentTimeMillis();
+        this.executionTime = endTime - startTime;
         return array;
     }
 
-    public int[] mergeSort(int[] array) {
+    public  int[] mergeSort(int[] array) {
         // IMPLEMENT HERE
 
+        final long startTime = System.currentTimeMillis();
         if (array ==null){
         }
         if(array.length>1){
@@ -137,14 +148,15 @@ public class SortingAlgorithms {
                 k++;
             }
         }
-
+        final long endTime = System.currentTimeMillis();
+        this.executionTime = endTime - startTime;
 
         return array;
     }
 
 
     // supportive partition function for quicksort
-    static int partition(int array[], int low, int high)
+    private  int partition(int array[], int low, int high)
     {
         // highest value
         int pivot = array[high];
@@ -171,8 +183,9 @@ public class SortingAlgorithms {
 
         return i + 1;
     }
-    public static int[] quickSort(int[] array) {
+    public  int[] quickSort(int[] array) {
         // IMPLEMENT HERE
+        final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
         // fetching length, lower limit and upper limit of index
@@ -213,13 +226,15 @@ public class SortingAlgorithms {
                 stack[++top] = h;
             }
         }
+        final long endTime = System.currentTimeMillis();
+        this.executionTime = endTime - startTime;
 
 
         return array;
     }
     // supportive function for heapSort, buildMaxHeap
     // generate max heap from array
-    static void buildMaxHeap(int array[])
+    private static void buildMaxHeap(int array[])
     {
         // fetching length from list
         int n = array.length;
@@ -243,10 +258,11 @@ public class SortingAlgorithms {
             }
         }
     }
-    public static int [] heapSort(int[] array){
+    public int [] heapSort(int[] array){
 
 
         //implement here
+        final long startTime = System.currentTimeMillis();
         buildMaxHeap(array);
         // fetching length of list
         int n = array.length;
@@ -288,6 +304,8 @@ public class SortingAlgorithms {
 
             } while (index < i);
         }
+        final long endTime = System.currentTimeMillis();
+        this.executionTime = endTime - startTime;
 
 
         return array;
@@ -369,25 +387,5 @@ public class SortingAlgorithms {
     /*private static void swap(int i, int i1) {
     }*/
 
-    public static void main(String args[])
-    {
-        int arr[] = {56, 5,45, 17, 2, 8};
-        /*int n = arr.length;*/
 
-
-        System.out.print("input array \n");
-        printSortedArray(arr);
-
-
-        //insertionSort(arr);
-        //selectionSort(arr);
-        //heapSort(arr);
-        /*quickSort(arr);*/
-        /*shellSort(arr);??*/
-        /*bucketSort(arr);*/
-
-
-        System.out.print("our sorted array: \n");
-        printSortedArray(arr);
-    }
 }

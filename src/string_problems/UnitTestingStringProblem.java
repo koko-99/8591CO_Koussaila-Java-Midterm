@@ -1,12 +1,50 @@
 package string_problems;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class UnitTestingStringProblem {
 
     /**
-     Use this class to unit test all of the classes contained within this package
+     * Use this class to unit test all of the classes contained within this package
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {}
+
+
+        /*String str = "ABC";
+        int n = str.length();
+        Permutation permutation = new Permutation();
+        permutation.permute(str, 0, n-1);
+
+
 
     }
+    private void permute(String str, int l, int r)
+    {
+        if (l == r)
+            System.out.println(str);
+        else
+        {
+            for (int i = l; i <= r; i++)
+            {
+                str = swap(str,l,i);
+                permute(str, l+1, r);
+                str = swap(str,l,i);
+            }
+        }
+    }
+
+    public String swap(String a, int i, int j)
+    {
+        char temp;
+        char[] charArray = a.toCharArray();
+        temp = charArray[i] ;
+        charArray[i] = charArray[j];
+        charArray[j] = temp;
+        return String.valueOf(charArray);
+    }*/
 }
+
+

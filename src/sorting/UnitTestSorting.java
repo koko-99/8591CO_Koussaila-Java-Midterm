@@ -13,14 +13,23 @@ public class UnitTestSorting {
         int[] unSortedArray = {6, 9, 2, 5, 1, 0, 4};
         int[] sortedArray = {0, 1, 2, 4, 5, 6, 9};
 
+
         // Create instance of Sort class
         SortingAlgorithms sorting = new SortingAlgorithms();
 
         // Pass the unsorted array to selectionSort() method (or any method you want to unit test) from Sort class
-        unSortedArray = sorting.selectionSort(unSortedArray);
+        //unSortedArray = sorting.selectionSort(unSortedArray);
+
+        unSortedArray= sorting.quickSort(unSortedArray);
+
 
         // Verify if the unsorted array is sorted by the desired method
         Assert.assertEquals(unSortedArray, sortedArray, "ARRAY IS NOT SORTED... YET!");
+
+        SortingAlgorithms.printSortedArray(unSortedArray);
+
+
+
 
     }
 }

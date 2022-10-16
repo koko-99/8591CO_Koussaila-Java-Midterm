@@ -2,9 +2,8 @@ package data_structures;
 
 import databases.SharedStepsDatabase;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.sql.SQLException;
+import java.util.*;
 
 public class UseQueue {
 
@@ -40,12 +39,12 @@ public class UseQueue {
         System.out.print("");*/
 
         // Demonstrate peek
-        int head = q.peek();
-        System.out.println("peek of queue: "+ head);
+
+        System.out.println("peek of queue: "+ q.peek());
 
         // To remove the head of queue.
-        int first = q.remove();
-        System.out.println("removed element: "+first);
+
+        System.out.println("removed element: "+q.remove());
 
 
         // Display contents of the queue using while loop with iterator
@@ -55,8 +54,22 @@ public class UseQueue {
             System.out.print(it.next());
         System.out.println(" "+" are the elements of the queue");
         //poll element
-        int pollelement=q.poll();
-        System.out.println(" Queue's head: " + pollelement);
+
+        System.out.println(" Queue's head: " + q.poll());
+        // copy data to Linkedlist
+        List<Object> qCopy= new ArrayList<>(q);
+
+        SharedStepsDatabase sql= new SharedStepsDatabase();
+        String table="queue";
+        sql.insertList(table,"Integers",qCopy);
+        // retrieve data
+        try {
+            List l = sql.executeQueryReadAll("select * from "+ table);
+            System.out.println(l);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+
+        }
 
     }
 }

@@ -35,6 +35,16 @@ public class UseMap {
         SharedStepsDatabase sql = new SharedStepsDatabase();
 
         // IMPLEMENT HERE
+        // Submiting data to db
+        sql.insertMap(tableName,map);
 
+        // retrieving data from database
+        List  dataFromDB = sql.executeQueryReadAll("select * from " + tableName);
+
+        Iterator  it = dataFromDB.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
+        sql.closeResources();
     }
 }
